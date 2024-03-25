@@ -5,6 +5,7 @@ import plotly.express as px
 import streamlit as st
 from matplotlib_venn import venn2
 import matplotlib.pyplot as plt
+from repo_path import repo_path
 
 def load_table_S6(repo_path):
     table_S6_path = os.path.join(repo_path, 'data/eos30gr/Table S6.xlsx')
@@ -86,7 +87,7 @@ def plot_venn_diagram(molecules_both_matching, molecules_first_only, molecules_s
     st.pyplot(fig)
 
 
-repo_path = '/Users/adhivp/Desktop/Ersilia_tasks'  # Replace with your repo path
+repo_path = repo_path() 
 table_S6 = load_table_S6(repo_path)
 
 

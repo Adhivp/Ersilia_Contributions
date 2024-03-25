@@ -3,6 +3,7 @@ import os
 import plotly.graph_objs as go
 import plotly.express as px
 import streamlit as st
+from repo_path import repo_path
 
 def load_data(repo_path):
     table_S7_path = os.path.join(repo_path, 'data/eos30gr/Table S7.xlsx')
@@ -87,4 +88,5 @@ def main(repo_path):
     st.plotly_chart(fig_positive)
     st.plotly_chart(fig_negative)
 
-main('/Users/adhivp/Desktop/Ersilia_tasks')  # Replace with your actual repo path
+repo_path = repo_path()
+main(repo_path)  

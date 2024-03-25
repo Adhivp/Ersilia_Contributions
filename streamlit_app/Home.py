@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+from repo_path import repo_path
 import os
 
 st.title("hERG Blocker Classification Model(eos30gr)")
@@ -23,7 +24,7 @@ st.success("Explore the tables below to see the datasets used for testing:")
 
 st.header("Datasets")
 st.write("Below are the datasets used for testing the model:")
-repo_path = "/Users/adhivp/Desktop/Ersilia_tasks"
+repo_path = repo_path()
 
 st.subheader("Dataset 1: Model Bias (Reference Libary)")
 reference_library_path = os.path.join(repo_path,'data/reference_library.csv')

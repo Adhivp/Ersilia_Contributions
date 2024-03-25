@@ -3,6 +3,7 @@ import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px
 import os
+from repo_path import repo_path
 
 def load_data(repo_path):
     eos30gr_output_path = os.path.join(repo_path, 'data/eos30gr/eos30gr_output_data.csv')
@@ -184,7 +185,7 @@ def main(repo_path):
     plot_probability_ranges_pie(eos30gr_output)
     plot_molecules_per_activity10_probability(eos30gr_output)
 
-repo_path = '/Users/adhivp/Desktop/Ersilia_tasks' # Your repository path here
+repo_path = repo_path()
 st.subheader("Predictions recieved from eos30gr model,it took approx 20 minutes to get result(local M1 air)")
 eos30gr_output_path = os.path.join(repo_path,'data/eos30gr/eos30gr_output_data.csv')
 eos30gr_output = pd.read_csv(eos30gr_output_path)
