@@ -5,7 +5,7 @@ import plotly.express as px
 import streamlit as st
 from matplotlib_venn import venn2
 import matplotlib.pyplot as plt
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix,roc_curve, auc, r2_score
 from repo_path import repo_path
 
 def load_external_data_1287_random_eos30gr_output(repo_path):
@@ -104,11 +104,8 @@ equations_dict = {
 metrics_df = pd.DataFrame.from_dict(metrics_dict, orient='index', columns=['Value'])
 
 metrics_df['Equation'] = [equations_dict[metric] for metric in metrics_df.index]
-
+st.subheader("Evaluation Metrics")
 st.write(metrics_df)
-
-import plotly.graph_objects as go
-from sklearn.metrics import roc_curve, auc, r2_score
 
 fpr, tpr, thresholds = roc_curve(external_data_1287_random['class'], external_data_1287_random_eos30gr_output['predictions_label_0.5'])
 auroc = auc(fpr, tpr)
