@@ -45,3 +45,10 @@ table_S6_path = os.path.join(repo_path, 'data/eos30gr/Table S6.xlsx')
 table_S6 = pd.read_excel(table_S6_path, skiprows=1)
 st.write(table_S6)
 
+st.subheader("Dataset 4: External dataset Model evaluation (external_dataset_1287_random.csv)")
+external_dataset_1287_random_path = os.path.join(repo_path, 'data/eos30gr/external_dataset_1287_random.csv')
+external_dataset_1287_random = pd.read_csv(external_dataset_1287_random_path)
+external_dataset_1287_random = external_dataset_1287_random.rename(columns={'class': 'Experimental_value'})
+external_dataset_1287_random = external_dataset_1287_random[['Standardised_smiles','Inchikey','Experimental_value']]
+st.write(external_dataset_1287_random)
+
